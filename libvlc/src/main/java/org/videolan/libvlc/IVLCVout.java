@@ -31,6 +31,7 @@ import android.view.TextureView;
 
 @SuppressWarnings("unused")
 public interface IVLCVout {
+
     interface OnNewVideoLayoutListener {
         /**
          * This listener is called when the "android-display" "vout display" module request a new

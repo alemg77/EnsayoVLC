@@ -15,9 +15,11 @@ import java.util.*
 const val URL_RTSP = "rtsp://mirgor.k8s.cablevision-labs.com.ar:8554/"
 
 class MainActivity : AppCompatActivity(), VlcListener, View.OnClickListener {
+
     private var vlcVideoLibrary: VlcVideoLibrary? = null
     private var bStartStop: Button? = null
     private val options = arrayOf(":fullscreen")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
@@ -25,9 +27,8 @@ class MainActivity : AppCompatActivity(), VlcListener, View.OnClickListener {
         val surfaceView = findViewById<View>(R.id.surfaceView) as SurfaceView
         bStartStop = findViewById<View>(R.id.b_start_stop) as Button
         bStartStop!!.setOnClickListener(this)
-        vlcVideoLibrary =
-                VlcVideoLibrary(this, this, surfaceView)
-        vlcVideoLibrary!!.setOptions(Arrays.asList(*options))
+        vlcVideoLibrary = VlcVideoLibrary(this, this, surfaceView)
+        vlcVideoLibrary!!.setOptions(listOf(*options))
     }
 
     override fun onComplete() {
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity(), VlcListener, View.OnClickListener {
     }
 
     override fun onBuffering(event: MediaPlayer.Event) {}
+
     override fun onClick(view: View) {
         if (!vlcVideoLibrary!!.isPlaying) {
             vlcVideoLibrary!!.play(URL_RTSP)

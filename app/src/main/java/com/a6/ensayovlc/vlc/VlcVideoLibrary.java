@@ -40,59 +40,6 @@ public class VlcVideoLibrary implements MediaPlayer.EventListener {
     options.add(":fullscreen");
   }
 
-  public VlcVideoLibrary(Context context, VlcListener vlcListener, TextureView textureView) {
-    this.vlcListener = vlcListener;
-    this.textureView = textureView;
-    vlcInstance = new LibVLC(context, new VlcOptions().getDefaultOptions());
-    options.add(":fullscreen");
-  }
-
-  public VlcVideoLibrary(Context context, VlcListener vlcListener, SurfaceTexture surfaceTexture) {
-    this.vlcListener = vlcListener;
-    this.surfaceTexture = surfaceTexture;
-    vlcInstance = new LibVLC(context, new VlcOptions().getDefaultOptions());
-    options.add(":fullscreen");
-  }
-
-  public VlcVideoLibrary(Context context, VlcListener vlcListener, Surface surface) {
-    this.vlcListener = vlcListener;
-    this.surface = surface;
-    surfaceHolder = null;
-    vlcInstance = new LibVLC(context, new VlcOptions().getDefaultOptions());
-    options.add(":fullscreen");
-  }
-
-  public VlcVideoLibrary(Context context, VlcListener vlcListener, Surface surface,
-      SurfaceHolder surfaceHolder) {
-    this.vlcListener = vlcListener;
-    this.surface = surface;
-    this.surfaceHolder = surfaceHolder;
-    vlcInstance = new LibVLC(context, new VlcOptions().getDefaultOptions());
-    options.add(":fullscreen");
-  }
-
-  public VlcVideoLibrary(Context context, VlcListener vlcListener, Surface surface, int width,
-      int height) {
-    this.vlcListener = vlcListener;
-    this.surface = surface;
-    this.width = width;
-    this.height = height;
-    surfaceHolder = null;
-    vlcInstance = new LibVLC(context, new VlcOptions().getDefaultOptions());
-    options.add(":fullscreen");
-  }
-
-  public VlcVideoLibrary(Context context, VlcListener vlcListener, Surface surface,
-      SurfaceHolder surfaceHolder, int width, int height) {
-    this.vlcListener = vlcListener;
-    this.surface = surface;
-    this.surfaceHolder = surfaceHolder;
-    this.width = width;
-    this.height = height;
-    vlcInstance = new LibVLC(context, new VlcOptions().getDefaultOptions());
-    options.add(":fullscreen");
-  }
-
   /**
    * This method should be called after constructor and before play methods.
    *

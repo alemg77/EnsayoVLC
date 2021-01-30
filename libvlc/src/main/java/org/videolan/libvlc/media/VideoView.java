@@ -83,43 +83,6 @@ public class VideoView extends SurfaceView
         super.onInitializeAccessibilityNodeInfo(info);
     }
 
-    public int resolveAdjustedSize(int desiredSize, int measureSpec) {
-        return getDefaultSize(desiredSize, measureSpec);
-    }
-
-    public void setVideoPath(String path) {
-        final Media media = new Media(sLibVLC, path);
-    }
-
-    public void setVideoURI(Uri uri) {
-        final Media media = new Media(sLibVLC, uri);
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public void setVideoURI(Uri uri, Map<String, String> headers) {
-        setVideoURI(uri);
-    }
-
-    public void addSubtitleSource(InputStream is, MediaFormat format) {
-
-    }
-
-    public void setMediaController(MediaController controller) {
-    }
-
-    public void setOnPreparedListener(OnPreparedListener l) {
-    }
-
-    public void setOnCompletionListener(OnCompletionListener l) {
-    }
-
-    public void setOnErrorListener(OnErrorListener l) {
-    }
-
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    public void setOnInfoListener(OnInfoListener l) {
-    }
-
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         return super.onTouchEvent(ev);
@@ -141,15 +104,6 @@ public class VideoView extends SurfaceView
 
     @Override
     public void pause() {
-    }
-
-    public void stopPlayback() {
-    }
-
-    public void suspend() {
-    }
-
-    public void resume() {
     }
 
     @Override
