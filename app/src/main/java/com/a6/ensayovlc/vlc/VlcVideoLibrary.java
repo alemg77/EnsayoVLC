@@ -136,7 +136,7 @@ public class VlcVideoLibrary implements MediaPlayer.EventListener {
         media.addOption(s);
       }
     }
-    media.setHWDecoderEnabled(true, false);
+    //media.setHWDecoderEnabled(true, false);
     player = new MediaPlayer(vlcInstance);
     player.setMedia(media);
     player.setEventListener(this);

@@ -12,12 +12,13 @@ import com.a6.ensayovlc.vlc.VlcVideoLibrary
 import org.videolan.libvlc.MediaPlayer
 import java.util.*
 
-const val URL_RTSP = "rtsp://mirgor.k8s.cablevision-labs.com.ar:8554/"
+//const val URL_RTSP = "rtsp://mirgor.k8s.cablevision-labs.com.ar:8554/"
+const val URL_RTSP = "rtsp://200.32.54.152:50100/cam"
 
 class MainActivity : AppCompatActivity(), VlcListener, View.OnClickListener {
     private var vlcVideoLibrary: VlcVideoLibrary? = null
     private var bStartStop: Button? = null
-    private val options = arrayOf(":fullscreen")
+    private val options = arrayOf(":rtsp-tcp")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
@@ -25,8 +26,7 @@ class MainActivity : AppCompatActivity(), VlcListener, View.OnClickListener {
         val surfaceView = findViewById<View>(R.id.surfaceView) as SurfaceView
         bStartStop = findViewById<View>(R.id.b_start_stop) as Button
         bStartStop!!.setOnClickListener(this)
-        vlcVideoLibrary =
-                VlcVideoLibrary(this, this, surfaceView)
+        vlcVideoLibrary = VlcVideoLibrary(this, this, surfaceView)
         vlcVideoLibrary!!.setOptions(Arrays.asList(*options))
     }
 
