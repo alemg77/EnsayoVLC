@@ -11,14 +11,17 @@ import com.a6.ensayovlc.vlc.VlcListener
 import com.a6.ensayovlc.vlc.VlcVideoLibrary
 import org.videolan.libvlc.MediaPlayer
 import java.util.*
+import kotlin.collections.ArrayList
 
 //const val URL_RTSP = "rtsp://mirgor.k8s.cablevision-labs.com.ar:8554/"
-const val URL_RTSP = "rtsp://200.32.54.152:50100/cam"
+//const val URL_RTSP = "rtsp://200.32.54.152:50105/cam"
+const val URL_RTSP = "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov"
 
 class MainActivity : AppCompatActivity(), VlcListener, View.OnClickListener {
+
     private var vlcVideoLibrary: VlcVideoLibrary? = null
     private var bStartStop: Button? = null
-    private val options = arrayOf(":rtsp-tcp")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
@@ -27,7 +30,6 @@ class MainActivity : AppCompatActivity(), VlcListener, View.OnClickListener {
         bStartStop = findViewById<View>(R.id.b_start_stop) as Button
         bStartStop!!.setOnClickListener(this)
         vlcVideoLibrary = VlcVideoLibrary(this, this, surfaceView)
-        vlcVideoLibrary!!.setOptions(Arrays.asList(*options))
     }
 
     override fun onComplete() {
@@ -41,6 +43,7 @@ class MainActivity : AppCompatActivity(), VlcListener, View.OnClickListener {
     }
 
     override fun onBuffering(event: MediaPlayer.Event) {}
+
     override fun onClick(view: View) {
         if (!vlcVideoLibrary!!.isPlaying) {
             vlcVideoLibrary!!.play(URL_RTSP)
@@ -50,4 +53,5 @@ class MainActivity : AppCompatActivity(), VlcListener, View.OnClickListener {
             bStartStop!!.text = "start_player"
         }
     }
+
 }
